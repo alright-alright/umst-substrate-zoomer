@@ -31,11 +31,11 @@ The UMST Substrate Zoomer is a sophisticated visualization engine that demonstra
 
 ```mermaid
 graph TB
-    subgraph "Initialization"
-        IN[Random Loop Cloud<br/>N=1000 oscillators<br/>Random phases φ ∈ [0, 2π]]
+    subgraph Init[Initialization]
+        IN[Random Loop Cloud<br/>N=1000 oscillators<br/>Random phases φ ∈ 0-2π]
     end
     
-    subgraph "Scale k=0 (Microscale)"
+    subgraph Scale0[Scale k=0 Microscale]
         L0[Loop Dynamics]
         R0[Resonance Field<br/>Tile-based detection]
         B0[Binding Detection<br/>R > θ threshold]
@@ -43,11 +43,11 @@ graph TB
         T0[TSL Control<br/>θ adaptation]
     end
     
-    subgraph "Coarse-Graining Transform"
-        CG[Spatial Aggregation<br/>Circular mean: φ̄ = arg(Σe^iφ)<br/>Position centroid: x̄ = Σx/N]
+    subgraph Transform[Coarse-Graining Transform]
+        CG[Spatial Aggregation<br/>Circular mean φ̄<br/>Position centroid x̄]
     end
     
-    subgraph "Scale k=1 (Mesoscale)"
+    subgraph Scale1[Scale k=1 Mesoscale]
         L1[Macro Loops<br/>~100 structures]
         R1[Resonance Detection]
         B1[Binding Formation]
@@ -55,13 +55,13 @@ graph TB
         T1[TSL Modulation]
     end
     
-    subgraph "Scale k=K (Macroscale)"
+    subgraph ScaleK[Scale k=K Macroscale]
         LK[Emergent Lattice<br/>~10 stable nodes]
         RK[Global Order R_K]
         HK[Harmony H_K]
     end
     
-    subgraph "Outputs"
+    subgraph Output[Outputs]
         M[metrics.json]
         P[order_vs_scale.png]
         F[frames/*.png]
@@ -76,10 +76,13 @@ graph TB
     L1 --> R1 --> B1
     B1 --> H1 --> T1
     T1 --> LK
-    LK --> RK & HK
+    LK --> RK
+    LK --> HK
     
-    RK --> M & P
-    B0 & B1 --> F
+    RK --> M
+    RK --> P
+    B0 --> F
+    B1 --> F
     LK --> LAT
 ```
 
