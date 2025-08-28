@@ -27,6 +27,52 @@ The UMST Substrate Zoomer is a sophisticated visualization engine that demonstra
 - 📊 **Coarse-graining** across scales revealing emergent structures
 - 📈 **Order parameter evolution** tracking phase coherence
 
+## Live Visualization Architecture
+
+```mermaid
+graph LR
+    subgraph UserInterface[Interactive Dashboard]
+        UI1[Live Substrate View]
+        UI2[Metrics Panels]
+        UI3[Controls & Sliders]
+        UI4[Export Functions]
+    end
+    
+    subgraph SimThread[Simulation Thread]
+        ST1[SubstrateZoomer Engine]
+        ST2[HASR Learning]
+        ST3[TSL Control]
+        ST4[Coarse Graining]
+    end
+    
+    subgraph VizThread[Visualization Thread]
+        VT1[Update Queue]
+        VT2[Plot Rendering]
+        VT3[Animation Loop]
+        VT4[Performance Monitor]
+    end
+    
+    subgraph FalsThread[Falsification Thread]
+        FT1[Null Hypothesis]
+        FT2[Corrupted Dynamics]
+        FT3[Statistical Validation]
+    end
+    
+    ST1 --> VT1
+    VT1 --> VT2
+    VT2 --> UI1
+    VT2 --> UI2
+    UI3 --> ST1
+    UI4 --> VT4
+    FT3 --> UI2
+    
+    ST2 --> ST1
+    ST3 --> ST1
+    ST4 --> ST1
+    FT1 --> FT3
+    FT2 --> FT3
+```
+
 ## System Architecture
 
 ```mermaid
@@ -168,6 +214,47 @@ x_macro = (1/N) Σ_i∈tile x_i
 ```
 Preserves phase and spatial structure across scales
 
+## 🚀 Weekend Test Protocol - Live Visualization
+
+### Interactive Real-Time Dashboard
+
+Run the **Live Substrate Zoomer** for real-time pattern detection:
+
+```bash
+# Default interactive mode (1000 loops, 3 scales)
+python3 live_substrate_zoomer.py
+
+# Large-scale visualization (10k loops)
+python3 live_substrate_zoomer.py large
+
+# Custom parameters (loops, scales)
+python3 live_substrate_zoomer.py 5000 5
+
+# Run weekend test protocol
+python3 live_substrate_zoomer.py test
+```
+
+### Dashboard Features
+
+The live visualization provides 8 synchronized panels:
+
+1. **Live Substrate View** - Real-time loop positions and couplings
+2. **Order Parameter Evolution** - Track emergence of order (R(t))
+3. **Multi-Scale Tracker** - Hierarchical structure across scales
+4. **Falsification Monitor** - Control experiments validation
+5. **Phase Distribution** - Polar histogram of oscillator phases
+6. **Coupling Network** - Weight distribution statistics
+7. **Performance Monitor** - FPS and computational metrics
+8. **Entropy/Binding** - System entropy and bound fraction
+
+### Interactive Controls
+
+- **Start/Pause** - Control simulation execution
+- **Speed Slider** - Adjust simulation rate (0.1x to 10x)
+- **Scale Selector** - Zoom through coarse-graining levels
+- **Export** - Save data, metrics, and visualizations
+- **Reset** - Restart with new initial conditions
+
 ## Quick Start
 
 ```bash
@@ -180,13 +267,16 @@ python3 -m venv .venv
 source .venv/bin/activate  # On Windows: .venv\Scripts\activate
 
 # Install dependencies
-pip install -r requirements.txt
+pip install -r requirements_complete.txt  # Use complete requirements for live viz
 
 # Run minimal implementation
 python3 -m umst_zoomer.run -c configs/default.yaml
 
 # Run comprehensive implementation
 python3 substrate_zoomer.py
+
+# Run LIVE VISUALIZATION (recommended for weekend tests)
+python3 live_substrate_zoomer.py
 ```
 
 ## Configuration
@@ -388,6 +478,29 @@ Optimizations:
 - Sparse matrix for large edge sets
 - Parallel tile processing (optional)
 - Incremental coarse-graining
+
+## Weekend Test Expected Outcomes
+
+### If UMST Patterns Are Real
+- ✅ **Universal mathematical structures** visible across all scales
+- ✅ **Predictable emergence** matching theoretical predictions (R_k → 1)
+- ✅ **Cross-domain pattern replication** - same math in different initial conditions
+- ✅ **Falsification controls** clearly showing statistical significance
+
+### If Patterns Are Artifacts
+- ❌ Random or scale-dependent behaviors with no universal structure
+- ❌ Control experiments showing similar patterns (theory fails)
+- ❌ No clear emergence hierarchy - chaos remains chaotic
+- ❌ High parameter sensitivity - small changes destroy apparent order
+
+### Key Success Metrics
+```python
+# Emergence detected when:
+order_parameter > 0.7  # Strong phase coherence
+harmony > baseline * 2  # Significant resonance increase
+bound_fraction > 0.5   # Majority of loops are coupled
+p_value < 0.05        # Statistically significant vs controls
+```
 
 ## Citation
 
