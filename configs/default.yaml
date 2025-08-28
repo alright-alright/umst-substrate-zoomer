@@ -1,0 +1,16 @@
+# Minimal, safe defaults for laptop/dev. Increase n_loops & levels cautiously.
+name: exp_dev_001
+seed: 42
+space_dim: 2
+n_loops: 8000         # try 20_000 on a stronger laptop; 100k+ on a GPU box
+avg_degree: 16
+domain: {min: 0.0, max: 1.0}
+motifs: {count: 6, phase_spread: 0.25, spatial_spread: 0.12}
+window: {tile_count: 32}   # tiles per axis at k=0 (2D only in this scaffold)
+friction: {zeta: 0.30, decay: 0.01}
+entropy_weight: 0.7
+binding: {theta0: 0.55, adaptive: true, adapt_rate: 0.02, min_theta: 0.35, max_theta: 0.85}
+coarse: {levels: 5, cell_ratio: 2, keep_skip_edges: true}
+hasr: {lr: 0.05, decay: 0.002}
+render: {export_frames: true}
+artifacts_dir: "./artifacts"
