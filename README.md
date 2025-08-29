@@ -216,21 +216,37 @@ Preserves phase and spatial structure across scales
 
 ## 🚀 Weekend Test Protocol - Live Visualization
 
-### Interactive Real-Time Dashboard
+### Complete Futuristic Dashboard (AerwareAI Mission Control)
 
-Run the **Live Substrate Zoomer** for real-time pattern detection:
+Run the **Complete Live Substrate Zoomer** with the futuristic AerwareAI interface:
 
 ```bash
-# Default interactive mode (1000 loops, 3 scales)
+# 🎯 RECOMMENDED: Complete futuristic visualization
+python3 live_substrate_zoomer_complete.py
+
+# Demo mode (500 loops, optimized for quick testing)
+python3 live_substrate_zoomer_complete.py demo
+
+# Large-scale visualization (5000 loops, performance mode)
+python3 live_substrate_zoomer_complete.py large
+
+# Massive scale (20000 loops, cyberpunk theme)
+python3 live_substrate_zoomer_complete.py massive
+
+# Run full weekend test protocol
+python3 live_substrate_zoomer_complete.py test
+
+# Custom configuration
+python3 live_substrate_zoomer_complete.py --loops 10000 --scales 5 --theme matrix --performance
+```
+
+### Alternative: Basic Live Visualizer
+
+```bash
+# Basic interactive mode (original implementation)
 python3 live_substrate_zoomer.py
 
-# Large-scale visualization (10k loops)
-python3 live_substrate_zoomer.py large
-
-# Custom parameters (loops, scales)
-python3 live_substrate_zoomer.py 5000 5
-
-# Run weekend test protocol
+# Basic test protocol
 python3 live_substrate_zoomer.py test
 ```
 
