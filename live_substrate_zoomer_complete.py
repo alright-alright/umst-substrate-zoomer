@@ -371,10 +371,9 @@ class LiveSubstrateVisualizer:
         
         # Initialize substrate zoomer
         self.zoomer = SubstrateZoomer(
-            n_loops=n_loops,
-            n_scales=n_scales,
-            binding_threshold=0.5,
-            domain_size=100.0
+            num_loops=n_loops,
+            substrate_size=(100, 100),
+            seed=42
         )
         
         # Initialize tracking systems

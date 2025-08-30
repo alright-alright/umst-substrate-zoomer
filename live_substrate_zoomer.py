@@ -104,9 +104,9 @@ class FalsificationEngine:
         params['hasr_enabled'] = False
         
         zoomer = SubstrateZoomer(
-            n_loops=n_loops,
-            n_scales=params.get('n_scales', 3),
-            binding_threshold=params.get('binding_threshold', 0.5)
+            num_loops=n_loops,
+            substrate_size=(100, 100),
+            seed=42
         )
         
         results = []
@@ -122,9 +122,9 @@ class FalsificationEngine:
         params = self.base_params.copy()
         
         zoomer = SubstrateZoomer(
-            n_loops=n_loops,
-            n_scales=params.get('n_scales', 3),
-            binding_threshold=params.get('binding_threshold', 0.5)
+            num_loops=n_loops,
+            substrate_size=(100, 100),
+            seed=42
         )
         
         results = []
@@ -177,10 +177,9 @@ class LiveSubstrateVisualizer:
         
         # Initialize substrate zoomer
         self.zoomer = SubstrateZoomer(
-            n_loops=n_loops,
-            n_scales=n_scales,
-            binding_threshold=0.5,
-            domain_size=100.0
+            num_loops=n_loops,
+            substrate_size=(100, 100),
+            seed=42
         )
         
         # Initialize tracking systems
@@ -601,10 +600,9 @@ class LiveSubstrateVisualizer:
         
         # Reset zoomer
         self.zoomer = SubstrateZoomer(
-            n_loops=self.n_loops,
-            n_scales=self.n_scales,
-            binding_threshold=0.5,
-            domain_size=100.0
+            num_loops=self.n_loops,
+            substrate_size=(100, 100),
+            seed=42
         )
         
         # Reset trackers
